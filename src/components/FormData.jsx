@@ -22,7 +22,7 @@ const FormData = () => {
     <div className="container text-center">
       <div className="row">
         <div className="col-1"></div>
-        <div className="col">
+        <div className="col-2">
           <div className="input-group mb-3">
             <span className="input-group-text" id="inputGroup-sizing-default">
               id
@@ -169,6 +169,15 @@ const FormData = () => {
           </div>
         </div>
         <div className="col-1"></div>
+      </div>
+      <div className="btn-group" role="group" aria-label="Basic outlined example">
+        <button type="button" className="btn btn-outline-primary izda">
+          Grabar</button>
+        <button type="button" className="btn btn-outline-primary ctr">
+          Limpiar</button>
+        <button type="button" className="btn btn-outline-primary dcha">
+          Salir</button>
+        
       </div>
     </div>
   );

@@ -81,4 +81,3 @@ export const getProduct = (id) => {
     return [];
   }
 };
-export const addProduct = (data) => {};

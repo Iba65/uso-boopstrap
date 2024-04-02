@@ -10,11 +10,16 @@ h1 {
 }
 
 .img {
-  background-image: url('./../public/asset/cielo2.jpg');
+  background-image: url("./../public/asset/cielo2.jpg");
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 .img-fluid {
   height: 15vh;
+}
+.izda,
+.ctr,
+.dcha {
+  min-width: 150px;
 }

@@ -17,7 +17,7 @@ const ListData = () => {
         <div className="col-1">Col</div>
         <div className="col">
           <table className="table">
-            <thead>
+            <thead className="table-info">
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Id</th>

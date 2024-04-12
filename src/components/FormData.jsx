@@ -1,23 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct } from "./../service/serviceFunct";
+import { naviTo } from "../utils/functionsGeneral";
+import { useNavigate } from "react-router-dom";
 
+
+const valInic = {
+  idRegis: 0,
+  nomRegis: "",
+  tienda: "",
+  idUme: "unidades",
+  stock: 0,
+  pvpume: 0,
+}
 const FormData = () => {
   let { id } = useParams();
-  const [regis, setRegis] = useState({
-    idRegis: 0,
-    nomRegis: "",
-    tienda: "",
-    idUme: "unidades",
-    stock: 0,
-    pvpume: 0,
-  });
+  let navigate = useNavigate();
+  const [regis, setRegis] = useState(valInic);
+  const [idselect, setIdselect] = useState({});
+
+  const nomart = useRef();
+
   useEffect(() => {
-    console.log(getProduct(id));
+    setIdselect(getProduct(id));
   }, [id]);
-  /*useEffect(() => {
-    console.log(regis);
-  }, [regis]);*/
+  
+  useEffect(() => {
+    if (undefined !== nomart) {
+      nomart.current.value = idselect.nombre;
+      nomart.current.style.color = "red";
+    }
+    setRegis({
+      idRegis: idselect.artId,
+      nomRegis: idselect.nombre,
+      tienda: idselect.tienda,
+      idUme: idselect.medida,
+      stock: idselect.stock,
+      pvpume: idselect.pvp_med,
+    });
+    console.log(regis.nomRegis);
+  }, [idselect]);
+
   return (
     <div className="container text-center">
       <div className="row">
@@ -47,13 +70,13 @@ const FormData = () => {
       </div>
       <div className="row">
         <div className="col-1"></div>
-        <div className="col">
+        <div className="col-5">
           <div className="input-group mb-3">
             <span className="input-group-text" id="inputGroup-sizing-default">
               nombre
             </span>
             <input
-              id="mombreRegis"
+              ref={nomart}
               value={regis.nomRegis}
               type="text"
               className="form-control"
@@ -72,7 +95,7 @@ const FormData = () => {
       </div>
       <div className="row">
         <div className="col-1"></div>
-        <div className="col">
+        <div className="col-5">
           <div className="input-group mb-3">
             <span className="input-group-text" id="inputGroup-sizing-default">
               Tienda
@@ -97,7 +120,7 @@ const FormData = () => {
       </div>
       <div className="row">
         <div className="col-1"></div>
-        <div className="col">
+        <div className="col-4">
           <div className="input-group mb-3">
             <span className="input-group-text" id="inputGroup-sizing-default">
               Unidad de medida
@@ -122,7 +145,7 @@ const FormData = () => {
       </div>
       <div className="row">
         <div className="col-1"></div>
-        <div className="col">
+        <div className="col-3">
           <div className="input-group mb-3">
             <span className="input-group-text" id="inputGroup-sizing-default">
               stock almacenado
@@ -147,7 +170,7 @@ const FormData = () => {
       </div>
       <div className="row">
         <div className="col-1"></div>
-        <div className="col">
+        <div className="col-4">
           <div className="input-group mb-3">
             <span className="input-group-text" id="inputGroup-sizing-default">
               pvp/ume
@@ -178,10 +201,10 @@ const FormData = () => {
         <button type="button" className="btn btn-outline-primary izda">
           grabar
         </button>
-        <button type="button" className="btn btn-outline-primary ctr">
+        <button type="button" className="btn btn-outline-primary ctr" onClick={() => setRegis(valInic)}>
           limpiar
         </button>
-        <button type="button" className="btn btn-outline-primary dcha">
+        <button type="button" className="btn btn-outline-primary dcha" onClick={()=>naviTo(navigate)}>
           salir
         </button>
       </div>

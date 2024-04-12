@@ -32,7 +32,7 @@ const ListData = () => {
               {list.map((prod, index) => (
                 <tr key={index}>
                   <th scope="row">{index + 1}</th>
-                  <td onClick={() => naviTo(prod.artId)}>{prod.artId}</td>
+                  <td style={{ cursor: "pointer", backgroundColor: "#CFF4FC", color: "navy" }} onClick={() => naviTo(prod.artId)}>{prod.artId}</td>
                   <td>{prod.nombre}</td>
                   <td>{prod.medida}</td>
                   <td>{prod.unidades}</td>

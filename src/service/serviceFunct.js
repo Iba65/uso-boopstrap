@@ -78,6 +78,6 @@ export const getProduct = (id) => {
   if (undefined !== producto) {
     return producto;
   } else {
-    return [];
+    return {};
   }
 };

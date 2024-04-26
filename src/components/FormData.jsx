@@ -4,7 +4,6 @@ import { getProduct } from "./../service/serviceFunct";
 import { naviTo } from "../utils/functionsGeneral";
 import { useNavigate } from "react-router-dom";
 
-
 const valInic = {
   idRegis: 0,
   nomRegis: "",
@@ -12,19 +11,19 @@ const valInic = {
   idUme: "unidades",
   stock: 0,
   pvpume: 0,
-}
+};
 const FormData = () => {
   let { id } = useParams();
   let navigate = useNavigate();
   const [regis, setRegis] = useState(valInic);
   const [idselect, setIdselect] = useState({});
-
+  console.log(id);
   const nomart = useRef();
 
   useEffect(() => {
     setIdselect(getProduct(id));
   }, [id]);
-  
+
   useEffect(() => {
     if (undefined !== nomart) {
       nomart.current.value = idselect.nombre;
@@ -201,10 +200,18 @@ const FormData = () => {
         <button type="button" className="btn btn-outline-primary izda">
           grabar
         </button>
-        <button type="button" className="btn btn-outline-primary ctr" onClick={() => setRegis(valInic)}>
+        <button
+          type="button"
+          className="btn btn-outline-primary ctr"
+          onClick={() => setRegis(valInic)}
+        >
           limpiar
         </button>
-        <button type="button" className="btn btn-outline-primary dcha" onClick={()=>naviTo(navigate)}>
+        <button
+          type="button"
+          className="btn btn-outline-primary dcha"
+          onClick={() => naviTo(navigate)}
+        >
           salir
         </button>
       </div>

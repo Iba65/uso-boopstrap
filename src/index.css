@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.general{
+  width: 75%;
+  margin: auto 10px;
+  display: flex;
+  flex-direction: row;
+
+}
+.opc{
+  color: white;
+  width: 100px;
+  list-style: none;
+}
+.elHome{
+  margin: 0px 0px 0px 0px ;
+  color: white;
+}

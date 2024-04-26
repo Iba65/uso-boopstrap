@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { naviTo } from "./../utils/functionsGeneral";
 
 export const Navbar = () => {
@@ -12,8 +12,17 @@ export const Navbar = () => {
         &nbsp; {authName === "" ? "Ejercicio 21" : authName}
       </span>
       <ul className="general">
-        <li className="opc elHome">Home</li>
-        <li className="opc elNuevo">Nuevo</li>
+        <li className="opc elHome">
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "activa-link" : null)}
+          >
+            Home
+          </NavLink>
+        </li>
+        <NavLink to="/nuevo" activeClassName="activa-link">
+          <li className="opc elNuevo">Nuevo</li>
+        </NavLink>
       </ul>
       <button
         className="btn btn-outline-danger"

@@ -13,16 +13,21 @@ const valInic = {
   pvpume: 0,
 };
 const FormData = () => {
-  let { id } = useParams();
+  let { idf } = useParams();
   let navigate = useNavigate();
   const [regis, setRegis] = useState(valInic);
   const [idselect, setIdselect] = useState({});
-  console.log(id);
+  const [formato, setFormato] = useState("e");
+  console.log(idf);
   const nomart = useRef();
 
   useEffect(() => {
-    setIdselect(getProduct(id));
-  }, [id]);
+    if (undefined !== idf) {
+      setIdselect(getProduct(idf));
+    } else {
+      setFormato("c");
+    }
+  }, [idf]);
 
   useEffect(() => {
     if (undefined !== nomart) {

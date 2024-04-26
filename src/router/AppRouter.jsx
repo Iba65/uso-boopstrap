@@ -6,7 +6,7 @@ export const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" element={<ListData />} />
-      <Route path="/form/:id" element={<FormData />} />
+      <Route path="/form/:idf" element={<FormData />} />
       <Route path="/nuevo" element={<FormData />} />
     </Routes>
   );

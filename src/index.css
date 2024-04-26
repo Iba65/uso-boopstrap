@@ -18,12 +18,20 @@ code {
   flex-direction: row;
 
 }
+a{
+  text-decoration: none;
+}
 .opc{
   color: white;
   width: 100px;
   list-style: none;
+  
 }
 .elHome{
   margin: 0px 0px 0px 0px ;
   color: white;
+}
+.activa-link{
+  font-weight: 600;
+  color: aquamarine;
 }
